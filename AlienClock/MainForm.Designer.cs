@@ -60,8 +60,17 @@
             this.txtAYear = new System.Windows.Forms.TextBox();
             this.clock2 = new ClockDisplay.Clock();
             this.clock1 = new ClockDisplay.Clock();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.txtAlarmHour = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.txtAlarmMinute = new System.Windows.Forms.TextBox();
+            this.lblAlarmReport = new System.Windows.Forms.Label();
+            this.btnSetAlarm = new System.Windows.Forms.Button();
+            this.btnStopAlarm = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -343,9 +352,9 @@
             this.clock2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.clock2.Display = ClockDisplay.DisplayOption.text;
             this.clock2.IsAlienClock = false;
-            this.clock2.Location = new System.Drawing.Point(620, 12);
+            this.clock2.Location = new System.Drawing.Point(818, 12);
             this.clock2.Name = "clock2";
-            this.clock2.Size = new System.Drawing.Size(541, 432);
+            this.clock2.Size = new System.Drawing.Size(701, 432);
             this.clock2.TabIndex = 0;
             // 
             // clock1
@@ -355,14 +364,90 @@
             this.clock1.IsAlienClock = false;
             this.clock1.Location = new System.Drawing.Point(12, 12);
             this.clock1.Name = "clock1";
-            this.clock1.Size = new System.Drawing.Size(541, 432);
+            this.clock1.Size = new System.Drawing.Size(701, 432);
             this.clock1.TabIndex = 0;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.btnStopAlarm);
+            this.groupBox3.Controls.Add(this.btnSetAlarm);
+            this.groupBox3.Controls.Add(this.lblAlarmReport);
+            this.groupBox3.Controls.Add(this.label14);
+            this.groupBox3.Controls.Add(this.txtAlarmMinute);
+            this.groupBox3.Controls.Add(this.label7);
+            this.groupBox3.Controls.Add(this.txtAlarmHour);
+            this.groupBox3.Location = new System.Drawing.Point(1184, 467);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(335, 309);
+            this.groupBox3.TabIndex = 4;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Set Alarm";
+            // 
+            // txtAlarmHour
+            // 
+            this.txtAlarmHour.Location = new System.Drawing.Point(75, 47);
+            this.txtAlarmHour.Name = "txtAlarmHour";
+            this.txtAlarmHour.Size = new System.Drawing.Size(116, 25);
+            this.txtAlarmHour.TabIndex = 0;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(17, 50);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(39, 15);
+            this.label7.TabIndex = 12;
+            this.label7.Text = "Hour";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(17, 102);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(55, 15);
+            this.label14.TabIndex = 14;
+            this.label14.Text = "Minute";
+            // 
+            // txtAlarmMinute
+            // 
+            this.txtAlarmMinute.Location = new System.Drawing.Point(75, 99);
+            this.txtAlarmMinute.Name = "txtAlarmMinute";
+            this.txtAlarmMinute.Size = new System.Drawing.Size(116, 25);
+            this.txtAlarmMinute.TabIndex = 1;
+            // 
+            // lblAlarmReport
+            // 
+            this.lblAlarmReport.AutoSize = true;
+            this.lblAlarmReport.Location = new System.Drawing.Point(17, 155);
+            this.lblAlarmReport.Name = "lblAlarmReport";
+            this.lblAlarmReport.Size = new System.Drawing.Size(95, 15);
+            this.lblAlarmReport.TabIndex = 15;
+            this.lblAlarmReport.Text = "AlarmReport";
+            // 
+            // btnSetAlarm
+            // 
+            this.btnSetAlarm.Location = new System.Drawing.Point(24, 235);
+            this.btnSetAlarm.Name = "btnSetAlarm";
+            this.btnSetAlarm.Size = new System.Drawing.Size(137, 43);
+            this.btnSetAlarm.TabIndex = 16;
+            this.btnSetAlarm.Text = "Set Alarm";
+            this.btnSetAlarm.UseVisualStyleBackColor = true;
+            // 
+            // btnStopAlarm
+            // 
+            this.btnStopAlarm.Location = new System.Drawing.Point(188, 235);
+            this.btnStopAlarm.Name = "btnStopAlarm";
+            this.btnStopAlarm.Size = new System.Drawing.Size(132, 43);
+            this.btnStopAlarm.TabIndex = 16;
+            this.btnStopAlarm.Text = "Delete Alarm";
+            this.btnStopAlarm.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1304, 806);
+            this.ClientSize = new System.Drawing.Size(1585, 806);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.clock2);
@@ -374,6 +459,8 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -412,6 +499,14 @@
         private System.Windows.Forms.TextBox txtADay;
         private System.Windows.Forms.TextBox txtAMonth;
         private System.Windows.Forms.TextBox txtAYear;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Button btnSetAlarm;
+        private System.Windows.Forms.Label lblAlarmReport;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox txtAlarmMinute;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txtAlarmHour;
+        private System.Windows.Forms.Button btnStopAlarm;
     }
 }
 

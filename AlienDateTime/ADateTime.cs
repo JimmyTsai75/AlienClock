@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text.RegularExpressions;
 
 namespace AlienDateTime
 {
@@ -24,6 +25,35 @@ namespace AlienDateTime
             Minute = minute;
             Second = second;
         }
+        public void ParseFromString(string str)
+        {
+            string pattern = @"(\d{4}-\d{1,2}-\d{1,2} \d{1,2}:\d{1,2}:\d{1,2})";
+
+            Match match = Regex.Match(str, pattern);
+
+            if (match.Success)
+            {
+                try
+                {
+                    Year = int.Parse(match.Groups[1].Value);
+                    Month = int.Parse(match.Groups[2].Value);
+                    Day = int.Parse(match.Groups[3].Value);
+                    Hour = int.Parse(match.Groups[4].Value);
+                    Minute = int.Parse(match.Groups[5].Value);
+                    Second = int.Parse(match.Groups[6].Value);
+                }
+                catch (Exception ex)
+                {
+
+                    throw ex;
+                }
+
+            }
+            else
+            {
+                throw new Exception("AlienClock parsing error");
+            }
+        }
         //Calculate the number of seconds between 0:0:0 and this time 
         public double Seconds2Zero()
         {
@@ -33,11 +63,11 @@ namespace AlienDateTime
         public int Day2Zero()
         {
             int res = 0;
-            for (int i = 0; i < Month-1; i++)
+            for (int i = 0; i < Month - 1; i++)
             {
                 res += daysInMonth[i];
             }
-            return res+Day;
+            return res + Day;
         }
         public int DaysOfYear()
         {
@@ -91,13 +121,13 @@ namespace AlienDateTime
                 }
             }
 
-            Second = Math.Round(Second, 0);
+            Second = Math.Round(Second, 2);
         }
 
         // Method to get the number of days in a specific month
         private int GetDaysInMonth(int month)
         {
-            
+
             return daysInMonth[month - 1];
         }
 
@@ -125,14 +155,14 @@ namespace AlienDateTime
         // Method to calculate the difference in seconds between two AlienClock times
         private double CalculateDifferenceInSeconds(ADateTime current, ADateTime reference)
         {
-            
+
             int daysElapsed = current.CalculateDifferenceInDays(current, reference);
             double s1 = current.Seconds2Zero();
             double s2 = reference.Seconds2Zero();
             double seconds = current.Seconds2Zero() - reference.Seconds2Zero();
             double sc = (double)daysElapsed * 36 * 90 * 90;
-            
-            return seconds+sc;
+
+            return seconds + sc;
         }
         /// <summary>
         /// Convert to Earth DateTime
@@ -148,7 +178,7 @@ namespace AlienDateTime
 
             return earthTime;
         }
-
+       
         // Overload the equality operator (==)
         public static bool operator ==(ADateTime left, ADateTime right)
         {
@@ -185,7 +215,7 @@ namespace AlienDateTime
 
             return false;
         }
-       
+
         // Override the GetHashCode method
         public override int GetHashCode()
         {
@@ -201,6 +231,8 @@ namespace AlienDateTime
                 return hash;
             }
         }
+
+
 
     }
 }
