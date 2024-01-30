@@ -1,14 +1,17 @@
 # AlienClock
 AlientClock考核题目--Jimmy
-# Create a new repository on the command line
-echo "# AlienClock" >> README.md
-git init
-git add README.md
-git commit -m "first commit"
-git branch -M main
-git remote add origin git@github.com:JimmyTsai75/AlienClock.git
-git push -u origin main
-# Or push an existing repository from the command line
-git remote add origin git@github.com:JimmyTsai75/AlienClock.git
-git branch -M main
-git push -u origin main
+
+源代码：https://github.com/JimmyTsai75/AlienClock
+
+
+
+源代码打开方式：
+
+用 Visual studio 打开AlienClock文件夹里面的AlienClock.sln
+
+
+
+## Getting Started
+
+Open AlienClock.sln in the AlienClock folder using Visual Studio
+
